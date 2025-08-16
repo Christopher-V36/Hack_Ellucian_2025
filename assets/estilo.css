@@ -123,3 +123,110 @@ main {
         /* Elimina esta línea: margin-top: 14vh; */ 
     }
 }
+
+/* Estilo para el contenedor del chat, que contendrá las dos cajas */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70vh; /* Ajusta la altura del contenedor principal del chat */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para la caja donde se muestran los mensajes */
+.chat-box {
+    flex-grow: 1; /* Permite que la caja de chat ocupe el espacio disponible */
+    overflow-y: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para la caja donde se ingresa el texto */
+.input-box {
+    display: flex;
+}
+
+.input-box input {
+    flex-grow: 1; /* El campo de texto ocupará el espacio restante */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.input-box button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.input-box button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo general del contenedor de las tarjetas */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada tarjeta */
+}
+
+/* Estilo para cada tarjeta */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto al pasar el cursor */
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card p {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilo de la barra de progreso */
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #007bff; /* Color de relleno de la barra */
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out;
+}
+
+.card span {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 5px;
+}
