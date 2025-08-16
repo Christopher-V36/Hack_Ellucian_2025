@@ -111,7 +111,7 @@ main {
  flex: 3;
  padding-right: 20px;
  background-color: white;
- padding: 20px;
+ padding: 0;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
