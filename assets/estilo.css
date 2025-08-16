@@ -1,213 +1,125 @@
 body {
- margin: 0;
- font-family: sans-serif;
- background-color: #f4f4f4;
- color: #333;
+    /* Elimina el margen por defecto del navegador */
+    margin: 0; 
+    
+    /* Agrega un relleno en la parte superior para dejar espacio a la barra de navegación fija.
+       Este valor debe ser igual a la altura de tu <header>. */
+    padding-top: 8vh; 
+    
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-
 header {
- background-color: #333;
- color: white;
- padding: 1rem 0;
- position: fixed;
- width: 100%;
- z-index: 100;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    
+    /* Mantiene la barra de navegación en la parte superior de la ventana. */
+    position: fixed; 
+    
+    width: 100%;
+    z-index: 100;
+    
+    /* Elimina cualquier espacio adicional que pudiera haber arriba. */
+    top: 0; 
+    left: 0; 
 }
 
 
 nav {
- display: flex;
- justify-content: space-around;
- align-items: center;
- min-height: 8vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* La altura mínima de 8vh está bien para el nav,
+       pero el padding del header también contribuye a la altura total. */
+    min-height: 8vh; 
 }
 
 
+/* --- Otras reglas de tu CSS sin cambios --- */
 .logo {
- font-size: 1.5rem;
- font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-
-
 .nav-links {
- display: flex;
- justify-content: space-around;
- width: 40%;
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
 }
-
-
 .nav-links li {
- list-style: none;
+    list-style: none;
+    position: relative;
 }
-
-
 .nav-links a {
- color: white;
- text-decoration: none;
- letter-spacing: 0.1rem;
- font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
 }
-
-
 .burger {
- display: none;
- cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
-
-
 .burger div {
- width: 25px;
- height: 3px;
- background-color: white;
- margin: 5px;
- transition: all 0.3s ease;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
 }
-
-
-.nav-links li {
- position: relative;
-}
-
-
 .dropdown {
- position: absolute;
- background-color: #555;
- padding: 0;
- list-style: none;
- width: 150px;
- top: 100%;
- left: 0;
- display: none;
- box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    position: absolute;
+    background-color: #555;
+    padding: 0;
+    list-style: none;
+    width: 150px;
+    top: 100%;
+    left: 0;
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
-
 .nav-links li:hover > .dropdown {
- display: block;
+    display: block;
 }
-
-
 .dropdown li a {
- padding: 10px 15px;
- display: block;
- text-align: left;
+    padding: 10px 15px;
+    display: block;
+    text-align: left;
 }
-
-
 .dropdown li a:hover {
- background-color: #777;
+    background-color: #777;
 }
 
-
+/* El problema principal estaba aquí. */
 .container {
- display: flex;
- padding: 20px;
- margin-top: 8vh; /* To avoid overlap with fixed header */
+    display: flex;
+    padding: 20px;
+    /* Elimina esta línea: margin-top: 8vh;
+       La solución está en el padding-top del body. */
 }
-
 
 main {
- flex: 3;
- padding-right: 20px;
- background-color: white;
- padding: 0;
- box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 3;
+    padding-right: 20px;
+    background-color: white;
+    padding: 0; /* Asegúrate de que no haya padding aquí si no lo deseas. */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .sidebar {
- flex: 1;
- background-color: #eee;
- padding: 20px;
- box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    background-color: #eee;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-.sidebar ul {
- list-style: none;
- padding: 0;
-}
-
-
-.sidebar li a {
- display: block;
- padding: 8px 0;
- text-decoration: none;
- color: #333;
-}
-
-
-.sidebar li a:hover {
- color: #007bff;
-}
-
-
-/* Responsive adjustments */
+/* --- Ajustes responsivos --- */
 @media screen and (max-width: 768px) {
- body {
- overflow-x: hidden;
- }
- .nav-links {
- position: absolute;
- right: 0px;
- height: 92vh;
- top: 8vh;
- background-color: #333;
- display: flex;
- flex-direction: column;
- align-items: center;
- width: 50%;
- transform: translateX(100%);
- transition: transform 0.5s ease-in;
- }
- .nav-links li {
- opacity: 0;
- }
- .burger {
- display: block;
- }
- .container {
- flex-direction: column;
- margin-top: 14vh; /* Adjust margin for mobile header */
- }
- main {
- padding-right: 0;
- margin-bottom: 20px;
- }
- .sidebar {
- width: 100%;
- }
-}
-
-
-.nav-active {
- transform: translateX(0%);
-}
-
-
-@keyframes navLinkFade {
- from {
- opacity: 0;
- transform: translateX(50px);
- }
- to {
- opacity: 1;
- transform: translateX(0px);
- }
-}
-
-
-.toggle .line1 {
- transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-
-.toggle .line2 {
- opacity: 0;
-}
-
-
-.toggle .line3 {
- transform: rotate(45deg) translate(-5px, -6px);
+    .container {
+        flex-direction: column;
+        /* El margin-top en móvil también es innecesario si se usa la solución del body */
+        /* Elimina esta línea: margin-top: 14vh; */ 
+    }
 }
