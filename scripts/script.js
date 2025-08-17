@@ -1,28 +1,44 @@
-const navSlide = () => {
- const burger = document.querySelector('.burger');
- const nav = document.querySelector('.nav-links');
- const navLinks = document.querySelectorAll('.nav-links li');
+document.addEventListener('DOMContentLoaded', function() {
+    const modelButtons = document.querySelectorAll('.model-button');
+    const modelContents = document.querySelectorAll('.model-content');
 
+    // Manejar el clic en los botones de modelo
+    modelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Oculta todos los contenidos de modelo
+            modelContents.forEach(content => {
+                content.classList.add('hidden');
+            });
 
- burger.addEventListener('click', () => {
- //Toggle Nav
- nav.classList.toggle('nav-active');
+            // Desactiva todos los botones
+            modelButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
 
+            // Muestra el contenido correspondiente al botón clicado
+            const targetId = button.dataset.target;
+            document.getElementById(targetId).classList.remove('hidden');
 
- //Animate Links
- navLinks.forEach((link, index) => {
- if (link.style.animation) {
- link.style.animation = ''
- } else {
- link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
- }
- });
+            // Activa el botón clicado
+            button.classList.add('active');
+        });
+    });
 
+    // Código para el botón de envío (se mantiene)
+    const chatInput = document.querySelector('.input-bar input');
+    const sendButton = document.querySelector('.send-button');
 
- //Burger Animation
- burger.classList.toggle('toggle');
- });
-}
+    sendButton.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message) {
+            console.log('Mensaje enviado:', message);
+            chatInput.value = '';
+        }
+    });
 
-
-navSlide();
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+});
