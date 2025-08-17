@@ -45,8 +45,8 @@ nav {
     flex-direction: column;
     width: auto;
     padding-left: 0;
-    padding-top: 40px; 
-    align-items:center;
+    padding-top: 40px;
+    align-items: center;
     gap: 40px;
 }
 
@@ -111,9 +111,13 @@ main {
     padding-right: 20px;
     background-color: white;
     padding: 0px;
-    height: 25vw;
-    max-width: 47vw;
+    height: 40vw;
+    max-width: 60vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,h2{
+    text-align: center;
 }
 
 .sidebar {
@@ -123,21 +127,20 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .chat-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 70%;
-    width: 90%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    height: 80%;
     padding: 10px;
-    background-color: #f9f9f9;
+
 }
 
 .chat-box {
     flex-grow: 1;
+    width: 70%;
     overflow-y: auto;
     padding: 10px;
     background-color: #fff;
@@ -148,6 +151,7 @@ main {
 
 .input-box {
     display: flex;
+    width: 70%;
 }
 
 .input-box input {
@@ -174,6 +178,7 @@ main {
 }
 
 .card-list {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 15px;
