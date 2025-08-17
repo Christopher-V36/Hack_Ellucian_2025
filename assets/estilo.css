@@ -5,7 +5,7 @@
     --sidebar-bg: #fff;
     --main-bg: #f5f8fc;
     --border-color: #e5e5e5;
-    --primary-color: #4b80ff;
+    --primary-color: #b181cb;
     --text-color: #333;
     --secondary-text: #666;
     --dark-green: #384234;
@@ -43,7 +43,7 @@ header::after {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #dee2e6 50%, transparent);
+    background: linear-gradient(90deg, transparent, #e1dee6 50%, transparent);
 }
 
 
@@ -379,7 +379,7 @@ header::after {
 }
 
 .send-button {
-    background-color: var(--primary-color);
+    background-color: #b181cb;
     color: white;
     border: none;
     border-radius: 50%;
@@ -393,7 +393,7 @@ header::after {
 }
 
 .chat-message-user {
-    background-color: #DCF8C6;
+    background-color: #b181cb8e;
     color: #333;
     align-self: flex-end;
     max-width: 70%;
