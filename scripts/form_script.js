@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('cuestionario-form');
     const secciones = ['seccion1', 'seccion2', 'seccion3', 'seccion4', 'seccion5'];

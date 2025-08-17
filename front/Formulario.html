@@ -257,10 +257,23 @@
                 console.log('Formulario enviado - comenzando recolección de datos');
 
                 const datos = {};
-                const formData = new FormData(formulario);
-                formData.forEach((valor, clave) => {
-                    datos[clave] = valor;
-                });
+                
+                // Recopilar todas las respuestas
+                for (let i = 1; i <= 18; i++) {
+                    const pregunta = `pregunta${i}`;
+                    
+                    if ([3, 7, 12, 15, 18].includes(i)) {
+                        // Preguntas de textarea
+                        const textarea = document.querySelector(`textarea[name="${pregunta}"]`);
+                        datos[pregunta] = textarea ? textarea.value.trim() : '';
+                        console.log(`${pregunta} (textarea):`, datos[pregunta]);
+                    } else {
+                        // Preguntas de radio
+                        const radioSeleccionado = document.querySelector(`input[name="${pregunta}"]:checked`);
+                        datos[pregunta] = radioSeleccionado ? radioSeleccionado.value : '';
+                        console.log(`${pregunta} (radio):`, datos[pregunta]);
+                    }
+                }
 
                 console.log('Todos los datos recopilados:', datos);
 

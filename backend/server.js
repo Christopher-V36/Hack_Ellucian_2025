@@ -1,5 +1,6 @@
-// Carga la información de tu archivo .env
 require('dotenv').config();
+
+
 
 const express = require('express');
 const mongoose = require('mongoose');
