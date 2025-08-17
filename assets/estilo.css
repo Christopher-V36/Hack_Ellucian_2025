@@ -33,8 +33,6 @@ body {
 header {
     height: var(--header-height);
     background-color: var(--sidebar-bg);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    border-bottom: 1px solid #f1f3f4;
     position: relative;
 }
 
