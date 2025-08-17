@@ -8,7 +8,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f8f9fa;
+            background: #f9f8fa;
             height: 100vh;
             overflow: hidden;
             color: #1a1a1a;
@@ -23,7 +23,7 @@
 
         .left-sidebar {
             width: 300px; 
-            background: #ffffff;
+            background: rgba(199, 199, 199, 0.112);
             border-right: 1px solid #e9ecef;
             display: flex;
             flex-direction: column;
@@ -456,7 +456,7 @@
 
         .feature-tag {
             padding: 16px 24px; /* Aumentado */
-            background: #f8f9fa;
+            background: rgba(128, 0, 128, 0.24);
             border-radius: 8px;
             border: 1px solid #e9ecef;
             text-align: center;
@@ -489,7 +489,7 @@
         }
 
         .model-content li {
-            background: #ffffff;
+            background: rgba(199, 199, 199, 0.112);
             padding: 40px; /* Aumentado */
             margin-bottom: 30px; /* Aumentado */
             border: 1px solid #f1f3f4;
@@ -645,7 +645,7 @@
         .content-footer {
             margin-top: 60px;
             padding: 50px; /* Aumentado */
-            background: #f8f9fa;
+            background: rgba(131, 78, 131, 0.24);
             border-radius: 12px;
             border: 1px solid #f1f3f4;
             text-align: center;
