@@ -1,6 +1,3 @@
-// --- Variables Globales (Elementos del DOM) ---
-// Obtener referencias a los elementos HTML por su ID.
-// Asegúrate de que estos IDs existan en tu chat.html.
 const chatBox = document.getElementById('chat-box');
 const userInputField = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-button');
@@ -17,7 +14,7 @@ let suggestedOptions = []; // Almacena las sugerencias de carrera (solo en el fr
 // Este perfil se enviará al backend para que Gemini tenga contexto.
 const simulatedUserId = "user-html-temp-12345"; // ID de usuario temporal para probar
 let simulatedStudentProfile = {
-    name: 'Invitado', // Nombre por defecto para el mensaje de bienvenida
+    name: 'Joss', // Nombre por defecto para el mensaje de bienvenida
     age: 20,
     interests: ['tecnología', 'diseño', 'música'],
     skills: ['resolución de problemas', 'creatividad', 'comunicación'],
@@ -190,7 +187,7 @@ window.onload = () => {
         chatBox.removeChild(initialParagraph);
     }
     // Muestra un mensaje de bienvenida del bot al iniciar la aplicación
-    displayMessage('bot', `¡Hola, ${simulatedStudentProfile.name}! Soy tu asesor vocacional. Cuéntame sobre tus intereses y lo que te gustaría explorar.`);
+    displayMessage('bot', `¡Hola, ${simulatedStudentProfile.name}! Muchas gracias por compartir tus intereses conmigo. Soy tu asesor vocacional. Ya me has brindado un buen panorama sobre ti, pero quisiera conocer más sobre tus intereses y lo que te gustaría explorar.`);
     // Muestra las sugerencias iniciales (si las hubiera, o el mensaje de "No hay sugerencias")
     displaySuggestions(suggestedOptions);
 };
