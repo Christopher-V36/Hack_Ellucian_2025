@@ -33,16 +33,17 @@
                     <div id="chat-box" class="chat-box">
                         <p>Aquí se mostrarán los mensajes del chat.</p>
                     </div>
+                    <div class="input-bar">
+                        <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+                        <button id="send-button" class="send-button"><span class="material-icons">send</span></button>
+                    </div>
                 </div>
             </section>
 
-            <div class="input-bar">
-                <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
-                <button id="send-button" class="send-button"><span class="material-icons">send</span></button>
-            </div>
+            
         </main>
 
-        <aside class="right-sidebar">
+        <!--<aside class="right-sidebar">
             <h2>Lista de carreras</h2>
             <div id="card-list" class="card-list">
                 <p id="loading-options" class="text-gray-500 text-center hidden">Cargando sugerencias...</p>
@@ -71,6 +72,13 @@
                     </div>
                     <span>45% Completado</span>
                 </div>
+            </div>
+        </aside>-->
+        <aside class="right-sidebar">
+             <h2>Lista de carreras</h2>
+            <div id="card-list" class="card-list">
+                <p id="loading-options" class="text-gray-500 text-center hidden">Cargando sugerencias...</p>
+                <p id="no-suggestions" class="text-gray-500 text-center hidden">No hay sugerencias aún. ¡Comienza a chatear!</p>
             </div>
         </aside>
     </div>
