@@ -30,21 +30,23 @@
                 </div>
                 
                 <div class="chat-container">
-                    <div class="chat-box">
+                    <div id="chat-box" class="chat-box">
                         <p>Aquí se mostrarán los mensajes del chat.</p>
                     </div>
                 </div>
             </section>
 
             <div class="input-bar">
-                <input type="text" placeholder="Escribe tu mensaje...">
-                <button class="send-button"><span class="material-icons">send</span></button>
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+                <button id="send-button" class="send-button"><span class="material-icons">send</span></button>
             </div>
         </main>
 
         <aside class="right-sidebar">
             <h2>Lista de carreras</h2>
-            <div class="card-list">
+            <div id="card-list" class="card-list">
+                <p id="loading-options" class="text-gray-500 text-center hidden">Cargando sugerencias...</p>
+                <p id="no-suggestions" class="text-gray-500 text-center hidden">No hay sugerencias aún. ¡Comienza a chatear!</p>
                 <div class="card">
                     <a href="Segunda_pag.html"><h3>Ingeniería en Sistemas Computacionales</h3></a>
                     <p>Especialízate en desarrollo de software y administración de redes.</p>
@@ -73,6 +75,7 @@
         </aside>
     </div>
 
-<script src="../scripts/script.js"></script>
+<script src="../scripts/chat.js"></script>
+<!--<script src="../backend/index.js"></script>-->
 </body>
 </html>
