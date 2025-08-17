@@ -1,4 +1,5 @@
-/* ... (El resto de tus estilos CSS, como :root, body, header, nav, .app-container, etc.) ... */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
     --bg-color: #eef2f6;
     --sidebar-bg: #fff;
@@ -12,151 +13,306 @@
     --header-height: 60px;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
-    /* ELIMINADO: margin-bottom: 0; - no es necesario */
-    overflow: hidden; /* Evita scroll en el body */
+    overflow: hidden;
+    color: #1a1a1a;
+    font-size: 16px;
 }
 
+/* HEADER STYLES */
 header {
     height: var(--header-height);
     background-color: var(--sidebar-bg);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid #f1f3f4;
+    position: relative;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 100%;
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #dee2e6 50%, transparent);
 }
+
 
 .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--primary-color);
+    color: #1a1a1a;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
+.logo-container {
+            padding: 40px 30px;
+            text-align: left;
+            border-bottom: 1px solid #f1f3f4;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-}
+        .robot-icon {
+            width: 40px;
+            height: 40px;
+        }
 
-/* Contenedor principal de la app */
+        .logo-container h2 {
+            color: #1a1a1a;
+            font-size: 22px; /* Aumentado */
+            font-weight: 300;
+            letter-spacing: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #1a1a1a;
+            transition: width 0.5s ease;
+        }
+
+        .logo-container:hover h2::after {
+            width: 60px;
+        }
+
+
+/* APP CONTAINER */
 .app-container {
     display: grid;
-    grid-template-columns: 250px 1fr 300px;
+    grid-template-columns: 280px 1fr 320px;
     grid-template-rows: 1fr;
     height: calc(100vh - var(--header-height));
     overflow: hidden;
+    background: #ffffff;
 }
 
-/* Sidebar izquierda */
+/* LEFT SIDEBAR STYLES */
 .left-sidebar {
-    background-color: var(--sidebar-bg);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-right: 1px solid var(--border-color);
-}
+            width: 300px; 
+            background: #ffffff;
+            border-right: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .left-sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #dee2e6 50%, transparent);
+        }
 
 .chat-history h4 {
-    color: var(--secondary-text);
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 30px;
+    margin-bottom: 16px;
+    font-size: 12px;
     text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.chat-history h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 20px;
+    height: 1px;
+    background: #dee2e6;
 }
 
 .chat-item {
     display: block;
-    color: var(--text-color);
+    color: #495057;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 5px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.chat-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #1a1a1a;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+    border-radius: 0 3px 3px 0;
+}
+
+.chat-item:hover {
+    background-color: #f8f9fa;
+    color: #1a1a1a;
+    transform: translateX(8px);
+    border-color: #f1f3f4;
+}
+
+.chat-item:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
 }
 
 .chat-item.active {
-    background-color: #eaf1ff;
-    color: var(--primary-color);
-    font-weight: bold;
+    background-color: #f8f9fa;
+    color: #1a1a1a;
+    font-weight: 500;
+    border-color: #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.chat-item.active::before {
+    transform: scaleY(1);
 }
 
 .upgrade-to-plus {
     margin-top: auto;
-    background-color: #f0f2f6;
-    color: var(--text-color);
-    padding: 12px 20px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    color: #1a1a1a;
+    padding: 18px 24px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #f1f3f4;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Contenido principal - CORREGIDO */
+.upgrade-to-plus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(26, 26, 26, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.upgrade-to-plus:hover::before {
+    left: 100%;
+}
+
+.upgrade-to-plus:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: #dee2e6;
+}
+
+/* MAIN CONTENT - CONSERVAR CHAT */
 .main-content {
     background-color: var(--main-bg);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Cambiado de 90% a 100% */
-    overflow: hidden; /* Evita overflow en el contenedor principal */
+    height: 100%;
+    overflow: hidden;
 }
 
 .main-header {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: center;
     align-items: center;
-    padding: 5px 20px;
-    background-color: var(--sidebar-bg);
-    border-bottom: 1px solid var(--border-color);
-    height: 60px; /* Altura fija en lugar de porcentaje */
-    flex-shrink: 0; /* No se redimensiona */
+    padding: 20px 30px;
+    background: #ffffff;
+    height: 70px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #dee2e6 50%, transparent);
 }
 
 .header-profile {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
 }
 
-.header-profile h2{
+.header-profile h2 {
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
     text-align: center;
-    transform: translateX(-120%);
+    
 }
 
 .header-profile i {
+    font-size: 32px;
+    color: #6c757d;
     margin-top: 0;
     border-radius: 50%;
-    font-size: 50px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
 }
 
-/* CORREGIDO: chat-display-area */
+.header-profile i:hover {
+    color: #1a1a1a;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* CONSERVAR TODOS LOS ESTILOS ORIGINALES DEL CHAT */
 .chat-display-area {
-    flex: 1; /* Ocupa todo el espacio disponible */
-    overflow: hidden; /* Evita overflow */
+    flex: 1;
+    overflow: hidden;
     padding: 30px;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-/* Estilos para el mensaje de bienvenida */
 .welcome-message {
     position: absolute;
     top: 50%;
@@ -167,7 +323,7 @@ nav {
     font-weight: bold;
     text-align: center;
     pointer-events: none;
-    z-index: 1; /* Asegura que esté detrás del chat-container */
+    z-index: 1;
 }
 
 .welcome-message h1 {
@@ -182,39 +338,36 @@ nav {
     font-weight: normal;
 }
 
-/* CORREGIDO: chat-container */
 .chat-container {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 12px;
-    padding: 0; /* Eliminado padding para mejor control */
-    height: 100%; /* Ocupa todo el espacio disponible */
+    padding: 0;
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 2; /* Asegura que esté encima del welcome-message */
+    z-index: 2;
 }
 
-/* CORREGIDO: chat-box */
 .chat-box {
-    flex: 1; /* Ocupa todo el espacio disponible menos el input-bar */
+    flex: 1;
     overflow-y: auto;
-    padding: 20px; /* Movido el padding aquí */
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espacio entre mensajes */
+    gap: 10px;
 }
 
-/* CORREGIDO: input-bar */
 .input-bar {
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: white;
     border-top: 1px solid var(--border-color);
-    flex-shrink: 0; /* IMPORTANTE: No se redimensiona */
-    position: relative; /* Asegura posición fija */
+    flex-shrink: 0;
+    position: relative;
 }
 
 .input-bar input {
@@ -238,63 +391,9 @@ nav {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    flex-shrink: 0; /* No se redimensiona */
+    flex-shrink: 0;
 }
 
-/* Sidebar derecha */
-.right-sidebar {
-    background-color: var(--sidebar-bg);
-    border-left: 1px solid var(--border-color);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* Permite scroll si es necesario */
-}
-
-.card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.card {
-    background-color: #f8f8f8;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-.card h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.card p {
-    margin: 0 0 10px;
-    font-size: 0.9em;
-    color: var(--secondary-text);
-}
-
-.progress-bar {
-    background-color: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 8px;
-    margin-bottom: 5px;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background-color: var(--primary-color);
-}
-
-.card span {
-    font-size: 0.8em;
-    color: var(--secondary-text);
-}
-
-/* CORREGIDOS: Estilos para los mensajes */
 .chat-message-user {
     background-color: #DCF8C6;
     color: #333;
@@ -317,7 +416,170 @@ nav {
     word-wrap: break-word;
 }
 
-/* --- Estilos Adicionales Necesarios para los Spinners y Barras de Progreso --- */
+/* RIGHT SIDEBAR STYLES */
+.right-sidebar {
+    background-color: #ffffff;
+    border-left: 1px solid #e9ecef;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    position: relative;
+}
+
+.right-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #dee2e6 50%, transparent);
+}
+
+.right-sidebar h2 {
+    color: #1a1a1a;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f3f4;
+    position: relative;
+    letter-spacing: -0.3px;
+}
+
+.right-sidebar h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #1a1a1a;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #f1f3f4;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: slideInRight 0.8s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #1a1a1a;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(26, 26, 26, 0.02), transparent);
+    transition: left 0.6s ease;
+}
+
+.card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.card:hover::after {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateX(-8px);
+    border-color: #dee2e6;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background: #fefefe;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    transition: color 0.3s ease;
+}
+
+.card h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card h3 a:hover {
+    color: #495057;
+}
+
+.card p {
+    margin: 0 0 20px;
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.progress-bar {
+    background-color: #f1f3f4;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 6px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1a1a1a, #495057);
+    border-radius: 6px;
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.card span {
+    font-size: 12px;
+    color: #adb5bd;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* UTILITY STYLES */
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #6366F1;
@@ -327,11 +589,78 @@ nav {
     animation: spin 1s linear infinite;
 }
 
+.hidden {
+    display: none !important;
+}
+
+/* ANIMATIONS */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.hidden {
-    display: none !important;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: 1fr auto;
+    }
+    
+    .left-sidebar {
+        width: 60px;
+        overflow: hidden;
+    }
+    
+    .right-sidebar {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        height: 300px;
+        border-left: none;
+        border-top: 1px solid #e9ecef;
+    }
+    
+    .chat-history h4,
+    .upgrade-to-plus {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .chat-display-area {
+        padding: 20px;
+    }
+    
 }

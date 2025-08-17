@@ -50,25 +50,9 @@
             gap: 16px;
         }
 
-        .logo-icon {
+        .robot-icon {
             width: 40px;
             height: 40px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ffffff;
-            border-radius: 3px;
-            transform: rotate(45deg);
         }
 
         .logo-container h2 {
