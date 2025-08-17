@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Sistema de Cuestionarios</title>
+    <title>MentorIA - Iniciar Sesión</title>
     <style>
         * {
             margin: 0;
@@ -12,173 +12,266 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
+            display: flex;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .login-container {
+            padding: 50px;
+            position: relative;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #cfb8e6 0%, white 99%);
+        }
+
+        .image-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0;
         }
 
-        .register-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        .image-container img {
             width: 100%;
-            max-width: 450px;
-            animation: slideUp 0.5s ease-out;
+            height: 100%;
+            object-fit: contain;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .header-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
         }
 
-        .register-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .register-header h1 {
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 2rem;
-        }
-
-        .register-header p {
+        .header-nav a {
             color: #666;
-            font-size: 0.9rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .btn-register {
-            width: 100%;
-            padding: 0.75rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-register:active {
-            transform: translateY(0);
-        }
-
-        .btn-register:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .login-link {
-            text-align: center;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #e1e5e9;
-        }
-
-        .login-link a {
-            color: #667eea;
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .login-link a:hover {
+        .header-nav a:hover {
+            color: #4b80ff;
+        }
+
+        .welcome-title {
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: #032b54;
+            margin-bottom: 25px;
+            margin-top: 30px;
+        }
+
+        .welcome-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .welcome-subtitle a {
+            color: #4b80ff;
+            text-decoration: none;
+        }
+
+        .welcome-subtitle a:hover {
             text-decoration: underline;
         }
 
-        .alert {
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        .alert-error {
-            background-color: #fee;
-            border: 1px solid #fcc;
-            color: #c33;
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
         }
 
-        .alert-success {
-            background-color: #efe;
-            border: 1px solid #cfc;
-            color: #3c3;
+        .input-container {
+            position: relative;
         }
 
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s ease-in-out infinite;
+        input[type="email"], 
+        input[type="password"], 
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            background-color: #f8f9fa;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        input[type="email"]:focus, 
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            border-color: #bb82f9;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(75, 128, 255, 0.1);
         }
 
-        .password-requirements {
-            font-size: 0.8rem;
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
             color: #666;
-            margin-top: 0.5rem;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            margin-right: 8px;
+        }
+
+        .custom-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            appearance: none;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked {
+            background-color: #4b80ff;
+            border-color: #4b80ff;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .forgot-password {
+            color: #4b80ff;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #904bff, #6366f1);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .sign-in-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(75, 128, 255, 0.3);
+        }
+
+        .sign-in-btn:active {
+            transform: translateY(0);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e5e9;
+            z-index: 1;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-container {
+                display: none;
+            }
+            
+            .login-container {
+                padding: 40px 30px;
+                height: 100vh;
+            }
+            
+            .header-nav {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="register-container">
-        <div class="register-header">
-            <h1>Crear Cuenta</h1>
-            <p>Completa el formulario para registrarte</p>
-        </div>
+    <div class="main-container">
+        <!-- Lado izquierdo - Formulario -->
+        <div class="login-container">
 
-        <div id="alert-container"></div>
+            <h1 class="welcome-title">¡El futuro que soñaste!</h1>
+            <h2>Registrate y conectate al futuro</h2>
 
-        <form id="registerForm">
-            <div class="form-group">
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
                 <label for="username">Usuario:</label>
                 <input type="text" id="username" name="username" required minlength="3">
             </div>
@@ -195,10 +288,7 @@
 
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required minlength="6">
-                <div class="password-requirements">
-                    Mínimo 6 caracteres
-                </div>
+                <input type="password" id="password" name="password" required minlength="6" placeholder="Minimo 6 caracteres">
             </div>
 
             <div class="form-group">
@@ -206,96 +296,41 @@
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
             </div>
 
-            <button type="submit" class="btn-register" id="registerBtn">
-                <span id="registerText">Registrarse</span>
-                <span id="registerLoader" class="loading" style="display: none;"></span>
-            </button>
-        </form>
+                <div class="checkbox-container">
+                    <p class="welcome-subtitle">¿Ya tienes una cuenta? <a href="index.html" onclick="alert('Inicia sesión')">Iniciar sesión</a></p>
+                </div>
 
-        <div class="login-link">
-            <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                <button type="submit" class="sign-in-btn">Registrarse</button>
+            </form>
+
+            <div class="divider">
+             
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="../src/botbot.svg" alt="Elviritabot">
         </div>
     </div>
 
-<script>
-// Reemplaza el script actual en register.html con este código:
-
-document.getElementById('registerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const name = document.getElementById('name').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const registerBtn = document.getElementById('registerBtn');
-    const registerText = document.getElementById('registerText');
-    const registerLoader = document.getElementById('registerLoader');
-    
-    // Validaciones del lado cliente
-    if (password !== confirmPassword) {
-        showAlert('Las contraseñas no coinciden', 'error');
-        return;
-    }
-
-    if (password.length < 6) {
-        showAlert('La contraseña debe tener al menos 6 caracteres', 'error');
-        return;
-    }
-
-    if (username.length < 3) {
-        showAlert('El usuario debe tener al menos 3 caracteres', 'error');
-        return;
-    }
-    
-    // Mostrar loading
-    registerBtn.disabled = true;
-    registerText.style.display = 'none';
-    registerLoader.style.display = 'inline-block';
-    
-    try {
-        const response = await fetch('/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username,
-                email,
-                name,
-                password,
-                confirmPassword
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (response.ok) {
-            showAlert('¡Registro exitoso! Redirigiendo al login...', 'success');
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 2000);
-        } else {
-            showAlert(data.error || 'Error en el registro', 'error');
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁';
+            }
         }
-    } catch (error) {
-        console.error('Error:', error);
-        showAlert('Error de conexión. Intenta nuevamente.', 'error');
-    } finally {
-        // Ocultar loading
-        registerBtn.disabled = false;
-        registerText.style.display = 'inline';
-        registerLoader.style.display = 'none';
-    }
-});
 
-function showAlert(message, type) {
-    const alertContainer = document.getElementById('alert-container');
-    alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
-    setTimeout(() => {
-        alertContainer.innerHTML = '';
-    }, 5000);
-}
+        function handleLogin(event) {
+            event.preventDefault();
+            window.location.href = 'formulario.html';
+        }
     </script>
 </body>
 </html>

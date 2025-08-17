@@ -1,84 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Layout</title>
-    <link rel="stylesheet" href="../assets/estilo.css">
+    <title>MentorIA - Iniciar Sesión</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .login-container {
+            padding: 50px;
+            position: relative;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #cfb8e6 0%, white 99%);
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .header-nav a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .header-nav a:hover {
+            color: #4b80ff;
+        }
+
+        .welcome-title {
+            font-size: 45px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            color: #032b54;
+            margin-bottom: 25px;
+            margin-top: 30px;
+        }
+
+        .welcome-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .welcome-subtitle a {
+            color: #4b80ff;
+            text-decoration: none;
+        }
+
+        .welcome-subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        input[type="email"], 
+        input[type="password"], 
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            background-color: #f8f9fa;
+        }
+
+        input[type="email"]:focus, 
+        input[type="password"]:focus,
+        input[type="text"]:focus {
+            border-color: #bb82f9;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(75, 128, 255, 0.1);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            margin-right: 8px;
+        }
+
+        .custom-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            appearance: none;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked {
+            background-color: #4b80ff;
+            border-color: #4b80ff;
+        }
+
+        .custom-checkbox input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .forgot-password {
+            color: #4b80ff;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .sign-in-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #904bff, #6366f1);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .sign-in-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(75, 128, 255, 0.3);
+        }
+
+        .sign-in-btn:active {
+            transform: translateY(0);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e5e9;
+            z-index: 1;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-container {
+                display: none;
+            }
+            
+            .login-container {
+                padding: 40px 30px;
+                height: 100vh;
+            }
+            
+            .header-nav {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Your Logo</div>
-            <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li>
-                    <a href="#">Services</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">SEO</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+    <div class="main-container">
+        <!-- Lado izquierdo - Formulario -->
+        <div class="login-container">
+
+            <h1 class="welcome-title">¡Tú mentor te espera!</h1>
+
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" id="username" name="username" placeholder="usuario123@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="input-container">
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">👁</button>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <p class="welcome-subtitle">¿No tienes una cuenta? <a href="register.html" onclick="alert('Ir a registro')">Registrarse</a></p>
+                    <a href="#" class="forgot-password" onclick="alert('Función de recuperar contraseña')">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="sign-in-btn">Iniciar Sesión</button>
+            </form>
+
+            <div class="divider">
+             
             </div>
-        </nav>
-    </header>
+        </div>
 
-    <div class="container">
-        <main>
-            <h1>Personaliza tus gustos</h1>
-                <div class="chat-container">
-                    <div class="chat-box">
-                        <p>Aquí se mostrarán los mensajes del chat.</p>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Escribe tu mensaje...">
-                        <button>Enviar</button>
-                    </div>
-                </div>
-                
-    
-            </main>
-        <aside class="sidebar">
-            <h2>Lista de carreras</h2>
-            <div class="card-list">
-                <div class="card">
-                    <a href="/Segunda_pag.html"><h3>Ingeniería en Sistemas Computacionales</h3></a>
-                    <p>Especialízate en desarrollo de software y administración de redes.</p>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 85%;"></div>
-                    </div>
-                    <span>85% Completado</span>
-                </div>
-
-                <div class="card">
-                    <h3>Licenciatura en Diseño Gráfico</h3>
-                    <p>Crea identidades visuales, animaciones y material digital.</p>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 60%;"></div>
-                    </div>
-                    <span>60% Completado</span>
-                </div>
-
-                <div class="card">
-                    <h3>Licenciatura en Administración</h3>
-                    <p>Dirige equipos, gestiona recursos y planifica estrategias.</p>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 45%;"></div>
-                    </div>
-                    <span>45% Completado</span>
-                </div>
-                
-            </div>
-        </aside>
+        <div class="image-container">
+            <img src="../src/botbot.svg" alt="Elviritabot">
+        </div>
     </div>
-<script src="/scripts/script.js"></script>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁';
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            window.location.href = 'formulario.html';
+        }
+    </script>
 </body>
 </html>
