@@ -166,9 +166,9 @@ app.post('/chat', async (req, res) => {
         } else {
             // Fallback en memoria si no hay DB
             studentProfile = inMemoryStudentProfiles[userId] || {
-                name: 'Invitado', // Perfil básico si no se ha guardado nada
-                age: 'desconocida',
-                interests: [],
+                name: 'Joss', // Perfil básico si no se ha guardado nada
+                age: '20',
+                interests: ['Programación'],
                 skills: [],
                 preferences: {}
             };
@@ -220,7 +220,7 @@ app.post('/chat', async (req, res) => {
               "percentageMatch": 0, // Un número del 0 al 100
               "reason": "Breve explicación de por qué coincide, considerando gustos/disgustos."
             },
-            // ... 2 a 4 carreras más (debes sugerir entre 2 y 4)
+            // ... 3 a 4 carreras más (debes sugerir entre 3 y 4)
           ]
         }
         \`\`\`
