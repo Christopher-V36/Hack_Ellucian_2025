@@ -3,82 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información de Carrera</title>
-    <link rel="stylesheet" href="/assets/estilo.css">
+    <title>AIVA Chatbot UI</title>
+    <link rel="stylesheet" href="../assets/informacion.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header">
-        <nav>
-            <div class="logo">Your Logo</div>
-            <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li>
-                    <a href="#">Services</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">SEO</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+    <div class="app-container">
+        <aside class="left-sidebar">
+            <div class="logo-container">
+                <h2>MentorIA</h2>
             </div>
-        </nav>
-    </header>
+            
+            <div class="new-chat">
+                <span class="material-icons">add</span>
+                Continuar conversación
+            </div>
+            <div class="chat-history">
+                </div>
+            <div class="upgrade-to-plus">
+                <span class="material-icons">upgrade</span>
+                Actualizar a Plus
+            </div>
+        </aside>
 
-    <div class="main-container">
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-models">
+                    <button class="model-button active" data-target="model-content-1">Carrera</button>
+                    <button class="model-button" data-target="model-content-2">Temario</button>
+                    <button class="model-button" data-target="model-content-3">Campo Laboral</button>
+                </div>
+                <div class="header-profile">
+                    <span class="material-icons">settings</span>
+                    <img src="your-avatar.png" alt="Avatar">
+                </div>
+            </header>
 
-        <section class="info-section">
-            <h2>Ingeniería en Sistemas Computacionales</h2>
-            <p>La Ingeniería en Sistemas Computacionales se enfoca en el diseño, desarrollo y gestión de sistemas informáticos para la solución de problemas complejos en diversas industrias.</p>
-        </section>
+            <section class="chat-display-area">
+                
+                <div id="model-content-1" class="model-content">
+                    <h1>Ingeniería en Sistemas Computacionales</h1>
+                    <p>La Ingeniería en Sistemas Computacionales se enfoca en el diseño, desarrollo y gestión de sistemas informáticos para la solución de problemas complejos en diversas industrias.</p>
+                </div>
 
-        <section class="topics-section">
-            <h2>Temas Vistos en la Carrera</h2>
-            <div class="box-grid">
-                <div class="topic-box">
-                    <h3>Programación y Algoritmos</h3>
-                    <p>Dominio de lenguajes de programación como C++, Java y Python, y desarrollo de estructuras de datos y algoritmos eficientes.</p>
+                <div id="model-content-2" class="model-content hidden">
+                    <h2>Temas Vistos en la Carrera</h2>
+                    <ul>
+                        <li><strong>Programación y Algoritmos</strong><br>Dominio de lenguajes de programación como C++, Java y Python, y desarrollo de estructuras de datos y algoritmos eficientes.</li>
+                        <li><strong>Bases de Datos</strong><br>Diseño, implementación y administración de bases de datos relacionales (SQL) y no relacionales (NoSQL).</li>
+                        <li><strong>Redes y Seguridad</strong><br>Configuración de redes de computadoras, protocolos de comunicación y estrategias para proteger la información.</li>
+                    </ul>
                 </div>
-                <div class="topic-box">
-                    <h3>Bases de Datos</h3>
-                    <p>Diseño, implementación y administración de bases de datos relacionales (SQL) y no relacionales (NoSQL).</p>
-                </div>
-                <div class="topic-box">
-                    <h3>Redes y Seguridad</h3>
-                    <p>Configuración de redes de computadoras, protocolos de comunicación y estrategias para proteger la información.</p>
-                </div>
-                </div>
-        </section>
 
-        <section class="job-section">
-            <h2>Campos Laborales y Salarios</h2>
-            <div class="job-box">
-                <div class="job-item">
-                    <h3>Desarrollador de Software</h3>
-                    <p><strong>Descripción:</strong> Creación de aplicaciones y sistemas informáticos para empresas.</p>
-                    <p><strong>Sueldo Promedio:</strong> $25,000 - $45,000 MXN al mes.</p>
+                <div id="model-content-3" class="model-content hidden">
+                    <h2>Campos Laborales y Salarios</h2>
+                    <ul>
+                        <li><strong>Desarrollador de Software</strong><br>Descripción: Creación de aplicaciones y sistemas informáticos para empresas.<br>Sueldo Promedio: $25,000 - $45,000 MXN al mes.</li>
+                        <li><strong>Administrador de Bases de Datos (DBA)</strong><br>Descripción: Mantenimiento, optimización y seguridad de la información almacenada.<br>Sueldo Promedio: $20,000 - $40,000 MXN al mes.</li>
+                        <li><strong>Especialista en Ciberseguridad</strong><br>Descripción: Protección de sistemas y datos contra ataques maliciosos.<br>Sueldo Promedio: $30,000 - $60,000 MXN al mes.</li>
+                    </ul>
                 </div>
-                <div class="job-item">
-                    <h3>Administrador de Bases de Datos (DBA)</h3>
-                    <p><strong>Descripción:</strong> Mantenimiento, optimización y seguridad de la información almacenada.</p>
-                    <p><strong>Sueldo Promedio:</strong> $20,000 - $40,000 MXN al mes.</p>
-                </div>
-                 <div class="job-item">
-                    <h3>Especialista en Ciberseguridad</h3>
-                    <p><strong>Descripción:</strong> Protección de sistemas y datos contra ataques maliciosos.</p>
-                    <p><strong>Sueldo Promedio:</strong> $30,000 - $60,000 MXN al mes.</p>
-                </div>
-                </div>
-        </section>
 
+            </section>
+        </main>
     </div>
-
+    <script src="../scripts/script.js"></script>
 </body>
 </html>
