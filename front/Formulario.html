@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Intereses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .seccion-cuestionario {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .navigation {
+            margin-top: 30px;
+            text-align: center;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        #btn-submit {
+            background-color: #27ae60;
+        }
+        #btn-submit:hover {
+            background-color: #229954;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Cuéntame un poco sobre ti</h1>
+
+    <form id="cuestionario-form">
+
+        <!-- SECCIÓN 1 -->
+        <div id="seccion1" class="seccion-cuestionario">
+            <h2>1. Lo que te motiva</h2>
+            
+            <h3>Si tuvieras un fin de semana libre, ¿qué proyecto te gustaría emprender?</h3>
+            <label><input type="radio" name="pregunta1" value="fiesta" required> Organizar una fiesta o evento para tus amigos.</label>
+            <label><input type="radio" name="pregunta1" value="construir" required> Construir algo con tus manos (un mueble, un circuito electrónico, un robot, etc.).</label>
+            <label><input type="radio" name="pregunta1" value="hobby" required> Sumirte de lleno en un hobby que te apasione.</label>
+            <label><input type="radio" name="pregunta1" value="investigar" required> Investigar a fondo un tema que te cause mucha curiosidad.</label>
+
+            <h3>¿Qué te hace sentir más vivo(a) y emocionado(a)?</h3>
+            <label><input type="radio" name="pregunta2" value="ayudar" required> Ayudar a alguien a resolver un problema.</label>
+            <label><input type="radio" name="pregunta2" value="idea" required> Tener una buena idea que nadie más había pensado.</label>
+            <label><input type="radio" name="pregunta2" value="logro" required> Lograr un objetivo difícil, ya sea por tu cuenta o en equipo.</label>
+            <label><input type="radio" name="pregunta2" value="crear" required> Crear algo que te guste mucho.</label>
+            
+            <h3>Piensa en un tema sobre el que podrías hablar durante horas sin aburrirte. ¿Cuál es y por qué te fascina tanto?</h3>
+            <textarea name="pregunta3" rows="4" placeholder="Escribe tu respuesta aquí..." required></textarea>
+        </div>
+
+        <!-- SECCIÓN 2 -->
+        <div id="seccion2" class="seccion-cuestionario" style="display: none;">
+            <h2>2. Tus Habilidades y Talentos</h2>
+
+            <h3>Cuando trabajas en equipo, ¿qué rol sueles asumir?</h3>
+            <label><input type="radio" name="pregunta4" value="lider" required> El líder: Quien organiza y dirige al grupo.</label>
+            <label><input type="radio" name="pregunta4" value="colaborador" required> El colaborador: Quien apoya y hace que las cosas pasen.</label>
+            <label><input type="radio" name="pregunta4" value="experto" required> El experto: Quien se encarga de la parte más técnica o difícil.</label>
+            <label><input type="radio" name="pregunta4" value="creativo" required> El creativo: Quien aporta las ideas más originales y fuera de lo común.</label>
+
+            <h3>En una escala del 1 al 5, ¿qué tan bueno te consideras para comunicarte y persuadir a los demás?</h3>
+            <label><input type="radio" name="pregunta5" value="1" required> 1 😞 Nada bueno</label>
+            <label><input type="radio" name="pregunta5" value="2" required> 2 😕 Poco bueno</label>
+            <label><input type="radio" name="pregunta5" value="3" required> 3 😐 Regular</label>
+            <label><input type="radio" name="pregunta5" value="4" required> 4 🙂 Bueno</label>
+            <label><input type="radio" name="pregunta5" value="5" required> 5 😄 Muy bueno</label>
+            
+            <h3>Cuando te enfrentas a un problema, ¿cuál es tu primera reacción?</h3>
+            <label><input type="radio" name="pregunta6" value="logica" required> Buscar una solución lógica, paso a paso.</label>
+            <label><input type="radio" name="pregunta6" value="ayuda" required> Pedir ayuda o consejo a alguien de confianza.</label>
+            <label><input type="radio" name="pregunta6" value="creativa" required> Intentar soluciones creativas y poco convencionales.</label>
+            <label><input type="radio" name="pregunta6" value="internet" required> Buscar tutoriales o información en internet.</label>
+
+            <h3>Cuéntame sobre algo que hayas logrado y que te haya hecho sentir realmente orgulloso(a). ¿Qué hiciste para conseguirlo?</h3>
+            <textarea name="pregunta7" rows="4" placeholder="Escribe tu respuesta aquí..." required></textarea>
+        </div>
+
+        <!-- SECCIÓN 3 -->
+        <div id="seccion3" class="seccion-cuestionario" style="display: none;">
+            <h2>3. Tu Estilo de Trabajo</h2>
+            
+            <h3>¿Cómo te imaginas tu ambiente de trabajo ideal?</h3>
+            <label><input type="radio" name="pregunta8" value="tranquilo" required> Una oficina tranquila, con tu propio espacio personal.</label>
+            <label><input type="radio" name="pregunta8" value="activo" required> Un lugar con mucha gente y actividad, como un set de filmación o un hospital.</label>
+            <label><input type="radio" name="pregunta8" value="aire-libre" required> Un entorno que te permita moverte y estar al aire libre.</label>
+            <label><input type="radio" name="pregunta8" value="creativo" required> Un estudio o taller creativo.</label>
+
+            <h3>¿Qué preferirías hacer todos los días?</h3>
+            <label><input type="radio" name="pregunta9" value="diferente" required> Hacer un montón de cosas diferentes para evitar la monotonía.</label>
+            <label><input type="radio" name="pregunta9" value="monotono" required> Hacer la misma tarea, pero ser el mejor en ella.</label>
+            <label><input type="radio" name="pregunta9" value="mezcla" required> Una mezcla de ambas.</label>
+
+            <h3>¿Cómo prefieres trabajar?</h3>
+            <label><input type="radio" name="pregunta10" value="solo" required> Solo(a) y a mi propio ritmo.</label>
+            <label><input type="radio" name="pregunta10" value="equipo" required> En equipo, con mucha colaboración.</label>
+            <label><input type="radio" name="pregunta10" value="liderando" required> Liderando y dirigiendo a un grupo.</label>
+            
+            <h3>¿Cómo prefieres que sean tus días de trabajo?</h3>
+            <label><input type="radio" name="pregunta11" value="remoto-fijo" required> Remoto con horario fijo.</label>
+            <label><input type="radio" name="pregunta11" value="remoto-flexible" required> Remoto con horarios flexibles.</label>
+            <label><input type="radio" name="pregunta11" value="presencial-fijo" required> Presencial con horario fijo.</label>
+            <label><input type="radio" name="pregunta11" value="presencial-flexible" required> Presencial con horarios flexibles.</label>
+            <label><input type="radio" name="pregunta11" value="no-limito" required> No me limito a algo específico.</label>
+            
+            <h3>Describe tu día de trabajo ideal.</h3>
+            <textarea name="pregunta12" rows="4" placeholder="Escribe tu respuesta aquí..." required></textarea>
+        </div>
+
+        <!-- SECCIÓN 4 -->
+        <div id="seccion4" class="seccion-cuestionario" style="display: none;">
+            <h2>4. Tus Valores y Motivaciones</h2>
+
+            <h3>Si tuvieras que elegir, ¿qué es lo más importante para ti en un trabajo?</h3>
+            <label><input type="radio" name="pregunta13" value="dinero" required> Ganar mucho dinero.</label>
+            <label><input type="radio" name="pregunta13" value="ayudar" required> Sentir que mi trabajo es importante y ayuda a los demás.</label>
+            <label><input type="radio" name="pregunta13" value="tiempo" required> Tener un horario flexible y mucho tiempo libre.</label>
+            <label><input type="radio" name="pregunta13" value="creativo" required> Que sea divertido y creativo.</label>
+
+            <h3>¿Qué te haría sentir más realizado(a)?</h3>
+            <label><input type="radio" name="pregunta14" value="respeto" required> Obtener el respeto y reconocimiento de otros.</label>
+            <label><input type="radio" name="pregunta14" value="causa" required> Sentir que estoy ayudando a una causa que me importa.</label>
+            <label><input type="radio" name="pregunta14" value="valioso" required> Saber que mi trabajo es valioso para la sociedad.</label>
+
+            <h3>Si el dinero no fuera un problema, ¿a qué dedicarías tu vida?</h3>
+            <textarea name="pregunta15" rows="4" placeholder="Escribe tu respuesta aquí..." required></textarea>
+        </div>
+
+        <!-- SECCIÓN 5 -->
+        <div id="seccion5" class="seccion-cuestionario" style="display: none;">
+            <h2>5. Tu Futuro</h2>
+
+            <h3>En una escala del 1 al 5, ¿qué tan seguro(a) te sientes de lo que quieres estudiar o hacer en el futuro?</h3>
+            <label><input type="radio" name="pregunta16" value="1" required> 1 😞 Nada seguro</label>
+            <label><input type="radio" name="pregunta16" value="2" required> 2 😕 Poco seguro</label>
+            <label><input type="radio" name="pregunta16" value="3" required> 3 😐 Regular</label>
+            <label><input type="radio" name="pregunta16" value="4" required> 4 🙂 Bastante seguro</label>
+            <label><input type="radio" name="pregunta16" value="5" required> 5 😄 Muy seguro</label>
+
+            <h3>¿Qué es lo que más te asusta al pensar en tu futuro profesional?</h3>
+            <label><input type="radio" name="pregunta17" value="no-guste" required> Elegir algo que no me guste.</label>
+            <label><input type="radio" name="pregunta17" value="no-trabajo" required> No encontrar trabajo después.</label>
+            <label><input type="radio" name="pregunta17" value="no-expectativas" required> No cumplir con las expectativas de mi familia.</label>
+            
+            <h3>Imagínate dentro de 10 años. ¿A qué te ves dedicándote?</h3>
+            <textarea name="pregunta18" rows="4" placeholder="Escribe tu respuesta aquí..." required></textarea>
+        </div>
+
+        <div class="navigation">
+            <button type="button" id="btn-anterior">← Anterior</button>
+            <button type="button" id="btn-siguiente">Siguiente →</button>
+            <button type="submit" id="btn-submit" style="display: none;">✅ Enviar Respuestas</button>
+        </div>
+
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado - Iniciando formulario');
+            
+            const formulario = document.getElementById('cuestionario-form');
+            const secciones = ['seccion1', 'seccion2', 'seccion3', 'seccion4', 'seccion5'];
+            let seccionActual = 0;
+            const btnAnterior = document.getElementById('btn-anterior');
+            const btnSiguiente = document.getElementById('btn-siguiente');
+            const btnSubmit = document.getElementById('btn-submit');
+            
+            console.log('Elementos encontrados:', {
+                formulario: !!formulario,
+                btnAnterior: !!btnAnterior,
+                btnSiguiente: !!btnSiguiente,
+                btnSubmit: !!btnSubmit
+            });
+
+            function actualizarBotones() {
+                btnAnterior.style.display = seccionActual === 0 ? 'none' : 'inline-block';
+                
+                if (seccionActual === secciones.length - 1) {
+                    btnSiguiente.style.display = 'none';
+                    btnSubmit.style.display = 'inline-block';
+                } else {
+                    btnSiguiente.style.display = 'inline-block';
+                    btnSubmit.style.display = 'none';
+                }
+            }
+
+            function cambiarSeccion(direccion) {
+                console.log(`Cambiando sección: ${seccionActual} -> ${seccionActual + direccion}`);
+                
+                document.getElementById(secciones[seccionActual]).style.display = 'none';
+                seccionActual += direccion;
+                document.getElementById(secciones[seccionActual]).style.display = 'block';
+                
+                actualizarBotones();
+                window.scrollTo(0, 0);
+            }
+            
+            btnAnterior.addEventListener('click', function() {
+                console.log('Botón anterior clickeado');
+                if (seccionActual > 0) cambiarSeccion(-1);
+            });
+
+            btnSiguiente.addEventListener('click', function() {
+                console.log('Botón siguiente clickeado');
+                if (seccionActual < secciones.length - 1) cambiarSeccion(1);
+            });
+
+            actualizarBotones();
+
+            formulario.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                console.log('Formulario enviado - comenzando recolección de datos');
+
+                const datos = {};
+                
+                // Recopilar todas las respuestas
+                for (let i = 1; i <= 18; i++) {
+                    const pregunta = `pregunta${i}`;
+                    
+                    if ([3, 7, 12, 15, 18].includes(i)) {
+                        // Preguntas de textarea
+                        const textarea = document.querySelector(`textarea[name="${pregunta}"]`);
+                        datos[pregunta] = textarea ? textarea.value.trim() : '';
+                        console.log(`${pregunta} (textarea):`, datos[pregunta]);
+                    } else {
+                        // Preguntas de radio
+                        const radioSeleccionado = document.querySelector(`input[name="${pregunta}"]:checked`);
+                        datos[pregunta] = radioSeleccionado ? radioSeleccionado.value : '';
+                        console.log(`${pregunta} (radio):`, datos[pregunta]);
+                    }
+                }
+
+                console.log('Todos los datos recopilados:', datos);
+
+                // Verificar respuestas vacías
+                const respuestasVacias = [];
+                for (let i = 1; i <= 18; i++) {
+                    const pregunta = `pregunta${i}`;
+                    if (!datos[pregunta]) {
+                        respuestasVacias.push(i);
+                    }
+                }
+                
+                if (respuestasVacias.length > 0) {
+                    alert(`Por favor responde todas las preguntas. Faltan: ${respuestasVacias.join(', ')}`);
+                    console.log('Respuestas faltantes:', respuestasVacias);
+                    return;
+                }
+
+                console.log('Enviando datos al servidor...');
+
+                try {
+                    const respuesta = await fetch('http://localhost:3000/api/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(datos)
+                    });
+
+                    console.log('Respuesta del servidor:', respuesta.status);
+
+                    if (respuesta.ok) {
+                        alert('¡Respuestas enviadas correctamente! 😊');
+                        formulario.reset();
+                        // Volver a la primera sección
+                        document.getElementById(secciones[seccionActual]).style.display = 'none';
+                        seccionActual = 0;
+                        document.getElementById(secciones[seccionActual]).style.display = 'block';
+                        actualizarBotones();
+                    } else {
+                        const errorText = await respuesta.text();
+                        console.log('Error del servidor:', errorText);
+                        alert('Hubo un error al enviar las respuestas: ' + errorText);
+                    }
+                } catch (error) {
+                    console.error('Error de conexión:', error);
+                    alert('No se pudo conectar con el servidor. Asegúrate de que esté encendido.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
