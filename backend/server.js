@@ -12,12 +12,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Conecta a tu base de datos de MongoDB Atlas
+
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('✅ Conectado a la base de datos de tu proyecto colaborativo.'))
     .catch(err => console.error('❌ Error de conexión:', err));
 
-// Define la estructura de los datos que se guardarán
 const cuestionarioSchema = new mongoose.Schema({
     pregunta1: String,
     pregunta2: String,
@@ -48,14 +47,13 @@ app.use((req, res, next) => {
     next();
 });
 
-// Crea la "ruta" que recibirá los datos del formulario
+
 app.post('/api/submit', async (req, res) => {
     try {
         console.log('📨 Datos recibidos del cliente:');
         console.log('Headers:', req.headers);
         console.log('Body:', req.body);
         
-        // Verificar que llegaron todas las preguntas
         const preguntasRecibidas = [];
         const preguntasFaltantes = [];
         
@@ -95,7 +93,7 @@ app.post('/api/submit', async (req, res) => {
     }
 });
 
-// Ruta para verificar cuántas respuestas hay en la base de datos
+
 app.get('/api/stats', async (req, res) => {
     try {
         const total = await Cuestionario.countDocuments();
