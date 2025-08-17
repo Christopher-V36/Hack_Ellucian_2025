@@ -1,11 +1,8 @@
+/* CSS para la página de inicio (index.html) */
+
 body {
-    /* Elimina el margen por defecto del navegador */
-    margin: 0; 
-    
-    /* Agrega un relleno en la parte superior para dejar espacio a la barra de navegación fija.
-       Este valor debe ser igual a la altura de tu <header>. */
-    padding-top: 8vh; 
-    
+    margin: 0;
+    padding-left: 10vw;
     font-family: sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -15,53 +12,61 @@ header {
     background-color: #333;
     color: white;
     padding: 1rem 0;
-    
-    /* Mantiene la barra de navegación en la parte superior de la ventana. */
-    position: fixed; 
-    
-    width: 100%;
+    position: fixed;
+    width: 7vw;
+    height: 100vh;
     z-index: 100;
-    
-    /* Elimina cualquier espacio adicional que pudiera haber arriba. */
-    top: 0; 
-    left: 0; 
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 20px;
 }
-
 
 nav {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    /* La altura mínima de 8vh está bien para el nav,
-       pero el padding del header también contribuye a la altura total. */
-    min-height: 8vh; 
+    justify-content: flex-start;
+    padding-top: 40px;
+    min-height: 8vh;
+    width: 100%;
 }
 
-
-/* --- Otras reglas de tu CSS sin cambios --- */
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 .nav-links {
     display: flex;
-    justify-content: space-around;
-    width: 40%;
+    flex-direction: column;
+    width: auto;
+    padding-left: 0;
+    padding-top: 40px; 
+    align-items:center;
+    gap: 40px;
 }
+
 .nav-links li {
     list-style: none;
     position: relative;
 }
+
 .nav-links a {
     color: white;
     text-decoration: none;
     letter-spacing: 0.1rem;
     font-weight: bold;
 }
+
 .burger {
     display: none;
     cursor: pointer;
 }
+
 .burger div {
     width: 25px;
     height: 3px;
@@ -69,6 +74,7 @@ nav {
     margin: 5px;
     transition: all 0.3s ease;
 }
+
 .dropdown {
     position: absolute;
     background-color: #555;
@@ -80,31 +86,33 @@ nav {
     display: none;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
+
 .nav-links li:hover > .dropdown {
     display: block;
 }
+
 .dropdown li a {
     padding: 10px 15px;
     display: block;
     text-align: left;
 }
+
 .dropdown li a:hover {
     background-color: #777;
 }
 
-/* El problema principal estaba aquí. */
 .container {
     display: flex;
     padding: 20px;
-    /* Elimina esta línea: margin-top: 8vh;
-       La solución está en el padding-top del body. */
 }
 
 main {
     flex: 3;
     padding-right: 20px;
     background-color: white;
-    padding: 0; /* Asegúrate de que no haya padding aquí si no lo deseas. */
+    padding: 0px;
+    height: 25vw;
+    max-width: 47vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,31 +123,22 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Ajustes responsivos --- */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        /* El margin-top en móvil también es innecesario si se usa la solución del body */
-        /* Elimina esta línea: margin-top: 14vh; */ 
-    }
-}
-
-/* Estilo para el contenedor del chat, que contendrá las dos cajas */
 .chat-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 70vh; /* Ajusta la altura del contenedor principal del chat */
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 90%;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
     background-color: #f9f9f9;
 }
 
-/* Estilo para la caja donde se muestran los mensajes */
 .chat-box {
-    flex-grow: 1; /* Permite que la caja de chat ocupe el espacio disponible */
-    overflow-y: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
+    flex-grow: 1;
+    overflow-y: auto;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -147,13 +146,12 @@ main {
     margin-bottom: 10px;
 }
 
-/* Estilo para la caja donde se ingresa el texto */
 .input-box {
     display: flex;
 }
 
 .input-box input {
-    flex-grow: 1; /* El campo de texto ocupará el espacio restante */
+    flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -175,14 +173,12 @@ main {
     background-color: #0056b3;
 }
 
-/* Estilo general del contenedor de las tarjetas */
 .card-list {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre cada tarjeta */
+    gap: 15px;
 }
 
-/* Estilo para cada tarjeta */
 .card {
     background-color: #fff;
     border-radius: 8px;
@@ -192,7 +188,7 @@ main {
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efecto al pasar el cursor */
+    transform: translateY(-5px);
 }
 
 .card h3 {
@@ -207,7 +203,6 @@ main {
     color: #666;
 }
 
-/* Estilo de la barra de progreso */
 .progress-bar {
     width: 100%;
     background-color: #e0e0e0;
@@ -218,7 +213,7 @@ main {
 
 .progress-bar-fill {
     height: 100%;
-    background-color: #007bff; /* Color de relleno de la barra */
+    background-color: #007bff;
     border-radius: 5px;
     transition: width 0.4s ease-in-out;
 }
@@ -229,4 +224,92 @@ main {
     font-size: 0.8rem;
     color: #555;
     margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* --- */
+
+/* CSS para la página de carrera */
+
+.main-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.info-section {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.topics-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.box-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.topic-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.topic-box:hover {
+    transform: translateY(-5px);
+}
+
+.topic-box h3 {
+    color: #0056b3;
+}
+
+.job-section h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.job-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.job-item:hover {
+    transform: translateY(-5px);
+}
+
+.job-item h3 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+.job-item p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .box-grid {
+        grid-template-columns: 1fr;
+    }
 }
